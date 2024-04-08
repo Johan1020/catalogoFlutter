@@ -36,15 +36,8 @@ router.get("/catalogo/:id",(req,res)=>{
 // delete a catalogo
 router.delete('/catalogo/:nombre', catalogoController.borrarProductoPorNombre);
 
-// update catalogo
-router.put("/catalogo/:id",(req,res)=>{
 
-    const {id} = req.params;
-    const {nombre,precio,imagen} = req.body;
-    catalogoShema
-    .updateOne({_id:id},{$set:{nombre,precio,imagen}})
-    .then((data)=> res.json(data))
-    .catch((error) => res.json({message:error}))
-});
+// update catalogo
+router.put('/catalogo/:nombre', catalogoController.actualizarProducto);
 
 module.exports=router;
