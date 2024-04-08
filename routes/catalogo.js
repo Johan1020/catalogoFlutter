@@ -1,6 +1,7 @@
 const express = require("express");
 const catalogoShema = require("../models/catalogo");
 const catalogoController = require('../controllers/catalogoController');
+const catalogoControllerUpdate = require('../controllers/catalogoControllerUpdate');
 
 const router = express.Router();
 
@@ -35,9 +36,9 @@ router.get("/catalogo/:id",(req,res)=>{
 
 // delete a catalogo
 router.delete('/catalogo/:nombre', catalogoController.borrarProductoPorNombre);
-
+router.put('/catalogo/:nombre', catalogoControllerUpdate.actualizarProducto);
 
 // update catalogo
-router.put('/catalogo/:nombre', catalogoController.actualizarProducto);
+router.put("")
 
 module.exports=router;
