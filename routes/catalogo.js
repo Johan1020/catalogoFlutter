@@ -1,5 +1,6 @@
 const express = require("express");
 const catalogoShema = require("../models/catalogo");
+const catalogoController = require('../controllers/catalogoController');
 
 const router = express.Router();
 
@@ -33,13 +34,7 @@ router.get("/catalogo/:id",(req,res)=>{
 
 
 // delete a catalogo
-router.delete("/catalogo/:id",(req,res)=>{
-    const {id} = req.params;
-    catalogoShema
-    .deleteOne({_id:id})
-    .then((data)=> res.json(data))
-    .catch((error)=>res.json({message:error}));
-});
+router.delete('/catalogo/:nombre', catalogoController.borrarProductoPorNombre);
 
 // update catalogo
 router.put("/catalogo/:id",(req,res)=>{
