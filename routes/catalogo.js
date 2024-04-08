@@ -36,7 +36,8 @@ router.get("/catalogo/:id",(req,res)=>{
 // delete a catalogo
 router.delete('/catalogo/:nombre', catalogoController.borrarProductoPorNombre);
 
+
 // update catalogo
-router.put('/:nombre', catalogoController.actualizarProducto);
+router.put('/catalogo/:nombre', catalogoController.actualizarProductoPorNombre);
 
 module.exports=router;
